@@ -8,6 +8,7 @@ public:
         int i=digit.size()-1;
         while(i>=0){
             if(digit[i]!=9){
+                //digit[i]++;
                 break;
             }
             else{
