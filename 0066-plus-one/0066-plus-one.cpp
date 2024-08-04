@@ -1,25 +1,27 @@
 class Solution {
 public:
-    vector<int> plusOne(vector<int>& d) {
-        if(d[d.size()-1]!=9){
-            d[d.size()-1]++;
-            return d;
+    vector<int> plusOne(vector<int>& digit) {
+        if(digit[digit.size()-1]!=9){
+            digit[digit.size()-1]++;
+            return digit;
         }
-        int i=d.size()-1;
+        int i=digit.size()-1;
         while(i>=0){
-            if(d[i]!=9){
+            if(digit[i]!=9){
                 break;
             }
-            d[i]=0;
-            i--;
+            else{
+                digit[i]=0;
+                i--;
+            }
         }
         if(i>=0){
-            d[i]++;
-            return d;
+            digit[i]++;
+            return digit;
         }
         vector<int> ans;
         ans.push_back(1);
-        for(int i=0;i<d.size();i++){
+        for(int i=0;i<digit.size();i++){
             ans.push_back(0);
         }
         return ans;
