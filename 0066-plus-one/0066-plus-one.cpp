@@ -8,7 +8,8 @@ public:
         int i=digit.size()-1;
         while(i>=0){
             if(digit[i]!=9){
-                //digit[i]++;
+                digit[i]++;
+                return digit;
                 break;
             }
             else{
@@ -16,10 +17,7 @@ public:
                 i--;
             }
         }
-        if(i>=0){
-            digit[i]++;
-            return digit;
-        }
+        
         vector<int> ans;
         ans.push_back(1);
         for(int i=0;i<digit.size();i++){
