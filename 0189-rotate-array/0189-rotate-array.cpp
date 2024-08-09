@@ -9,8 +9,6 @@ public:
          for(int i = 0; i < arr.size() - k; i++) {
             v.push_back(arr[i]);
         }
-        for(int i=0;i<v.size();i++){
-            arr[i]=v[i];
-        }
+        arr=v;
     }
 };
