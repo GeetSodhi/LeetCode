@@ -2,8 +2,15 @@ class Solution {
 public:
     void rotate(vector<int>& arr, int k) {
         k=k%arr.size();
-        reverse(arr.begin(),arr.end());
-        reverse(arr.begin(),arr.begin()+k);
-        reverse(arr.begin()+k,arr.end());
+        vector<int> v;
+        for(int i=arr.size()-k;i<arr.size();i++){
+            v.push_back(arr[i]);
+        }
+         for(int i = 0; i < arr.size() - k; i++) {
+            v.push_back(arr[i]);
+        }
+        for(int i=0;i<v.size();i++){
+            arr[i]=v[i];
+        }
     }
 };
