@@ -1,28 +1,30 @@
 class Solution {
 public:
-    vector<int> plusOne(vector<int>& digit) {
-        if(digit[digit.size()-1]!=9){
-            digit[digit.size()-1]++;
-            return digit;
-        }
-        int i=digit.size()-1;
-        while(i>=0){
-            if(digit[i]!=9){
-                digit[i]++;
-                return digit;
-                break;
-            }
-            else{
-                digit[i]=0;
-                i--;
-            }
-        }
-        
+    vector<int> plusOne(vector<int>& arr) {
+      int carry=0;
+        int i=arr.size()-1;
         vector<int> ans;
-        ans.push_back(1);
-        for(int i=0;i<digit.size();i++){
-            ans.push_back(0);
+        int sum=arr[i]+carry+1;
+        carry=sum/10;
+            sum=sum%10;
+            ans.push_back(sum);
+        i--;
+        while(i>=0){
+            sum=carry+arr[i];
+            
+            carry=sum/10;
+            sum=sum%10;
+            ans.push_back(sum);
+            i--;
+            
         }
+        while(carry!=0){
+            int sum=carry;
+            carry=sum/10;
+            sum=sum%10;
+            ans.push_back(sum);
+        }
+        reverse(ans.begin(),ans.end());
         return ans;
     }
 };
